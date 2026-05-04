@@ -1,0 +1,56 @@
+
+NUMERICAL FEATURE AUDIT REPORT
+
+CSV path:
+C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+
+Target column:
+Class
+
+Number of numerical features:
+50
+
+Constant features:
+[]
+
+Quasi-constant features:
+[]
+
+Top 10 most skewed features:
+                                       feature  skewness  kurtosis
+                        _Spectralkurtosis_Mean  7.971087 89.679342
+                              _AttackTime_Mean  3.382562 17.108481
+                             _Fluctuation_Mean  2.890519 12.726443
+                        _Spectralskewness_Mean  2.278226  9.116533
+                               _Roughness_Mean  2.083585  6.731580
+                        _Spectralflatness_Mean  1.486034  5.167494
+                            _Chromagram_Mean_4  1.485509  1.477103
+_HarmonicChangeDetectionFunction_PeriodEntropy -1.481047  7.570746
+                            _Chromagram_Mean_7  1.334623  0.926006
+                            _Chromagram_Mean_2  1.206974  0.431674
+
+Top 10 highest standard deviation features:
+                                    feature         std     min       max
+                              _Rolloff_Mean 2293.401839 887.151 11508.298
+                     _Spectralcentroid_Mean  863.520318 606.524  5326.379
+                       _Spectralspread_Mean  767.648035 814.817  4721.479
+                    _Zero-crossingrate_Mean  524.895867 149.490  3147.907
+                            _Roughness_Mean  521.218943   0.941  3899.847
+                                _Tempo_Mean   34.234344  48.284   195.026
+                     _Spectralkurtosis_Mean    8.621386   1.930   121.996
+                          _Fluctuation_Mean    2.280145   3.580    23.475
+                         _Eventdensity_Mean    1.326889   0.234     7.952
+_HarmonicChangeDetectionFunction_PeriodFreq    0.930352   0.187     4.486
+
+Top 10 lowest standard deviation features:
+                                       feature      std    min   max
+_HarmonicChangeDetectionFunction_PeriodEntropy 0.003841  0.939 0.977
+                              _AttackTime_Mean 0.016801  0.010 0.165
+                        _Spectralflatness_Mean 0.026492  0.006 0.209
+                       _EntropyofSpectrum_Mean 0.037260  0.740 0.942
+          _HarmonicChangeDetectionFunction_Std 0.047092  0.060 0.340
+                               _Lowenergy_Mean 0.050750  0.302 0.703
+         _HarmonicChangeDetectionFunction_Mean 0.055520  0.112 0.488
+                               _RMSenergy_Mean 0.064368  0.010 0.431
+    _HarmonicChangeDetectionFunction_PeriodAmp 0.072107  0.530 0.908
+        _HarmonicChangeDetectionFunction_Slope 0.104743 -0.285 0.442

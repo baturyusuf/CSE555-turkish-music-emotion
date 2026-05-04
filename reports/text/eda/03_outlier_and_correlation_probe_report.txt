@@ -1,0 +1,65 @@
+
+OUTLIER AND CORRELATION PROBE REPORT
+
+CSV path:
+C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+
+Target column:
+Class
+
+Numeric feature count:
+50
+
+Top 15 features by IQR outlier count:
+                                       feature  iqr_outlier_count  iqr_outlier_percentage  zscore_outlier_count
+                              _AttackTime_Mean                 38                    9.50                     9
+                        _Spectralkurtosis_Mean                 33                    8.25                     5
+                            _Chromagram_Mean_7                 22                    5.50                     0
+                            _Chromagram_Mean_4                 21                    5.25                     8
+                        _Spectralskewness_Mean                 18                    4.50                     9
+                               _Roughness_Mean                 18                    4.50                     8
+                            _Chromagram_Mean_2                 18                    4.50                     0
+_HarmonicChangeDetectionFunction_PeriodEntropy                 16                    4.00                     5
+                                  _MFCC_Mean_6                 15                    3.75                     8
+                                  _MFCC_Mean_1                 15                    3.75                     5
+                             _Fluctuation_Mean                 14                    3.50                    12
+                                 _MFCC_Mean_13                 14                    3.50                     5
+                                  _MFCC_Mean_8                 13                    3.25                     5
+                       _EntropyofSpectrum_Mean                 13                    3.25                     4
+                            _Pulseclarity_Mean                 12                    3.00                     7
+
+Top 15 feature-class associations by ANOVA F-value:
+                                   feature  anova_f_value  anova_p_value
+      _HarmonicChangeDetectionFunction_Std     177.229000   7.580575e-73
+                   _Zero-crossingrate_Mean     124.850842   6.352062e-57
+_HarmonicChangeDetectionFunction_PeriodAmp     121.907041   6.187308e-56
+                        _Pulseclarity_Mean      86.825557   3.441591e-43
+                        _Eventdensity_Mean      86.114759   6.538317e-43
+                          _Brightness_Mean      55.780736   4.278763e-30
+                   _EntropyofSpectrum_Mean      54.074532   2.579447e-29
+     _HarmonicChangeDetectionFunction_Mean      46.588888   8.305063e-26
+                              _MFCC_Mean_1      45.605706   2.458578e-25
+                    _Spectralcentroid_Mean      27.411807   3.972485e-16
+                          _AttackTime_Mean      24.221319   2.068834e-14
+                         _Fluctuation_Mean      24.218609   2.075858e-14
+                              _MFCC_Mean_2      21.747174   4.668843e-13
+                           _Roughness_Mean      19.909272   4.868074e-12
+                    _Spectralskewness_Mean      18.723855   2.237781e-11
+
+Top 15 absolute feature-feature correlations:
+              feature_1               feature_2  abs_correlation  correlation
+          _Rolloff_Mean  _Spectralcentroid_Mean         0.957927     0.957927
+       _Brightness_Mean _EntropyofSpectrum_Mean         0.931934     0.931934
+          _Rolloff_Mean    _Spectralspread_Mean         0.920900     0.920900
+           _MFCC_Mean_1        _Brightness_Mean         0.900882    -0.900882
+ _Spectralcentroid_Mean _EntropyofSpectrum_Mean         0.889409     0.889409
+ _Spectralskewness_Mean  _Spectralkurtosis_Mean         0.871167     0.871167
+ _Spectralcentroid_Mean    _Spectralspread_Mean         0.860345     0.860345
+       _Brightness_Mean  _Spectralcentroid_Mean         0.856931     0.856931
+ _Spectralskewness_Mean _EntropyofSpectrum_Mean         0.854764    -0.854764
+_Zero-crossingrate_Mean        _Brightness_Mean         0.840499     0.840499
+        _RMSenergy_Mean         _Roughness_Mean         0.839064     0.839064
+           _MFCC_Mean_1  _Spectralskewness_Mean         0.835553     0.835553
+ _Spectralcentroid_Mean  _Spectralskewness_Mean         0.821578    -0.821578
+           _MFCC_Mean_1 _EntropyofSpectrum_Mean         0.818558    -0.818558
+          _Rolloff_Mean  _Spectralskewness_Mean         0.816551    -0.816551

@@ -1,0 +1,60 @@
+
+PCA / LDA FEASIBILITY PROBE REPORT
+
+CSV path:
+C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+
+Target column:
+Class
+
+Numeric feature count:
+50
+
+Class count:
+4
+
+Max possible LDA components:
+3
+
+LDA status:
+LDA 2D projection was successfully generated.
+
+PCA eigenvalue - Fisher score relation:
+- Pearson correlation : 0.8427075001533592
+- Spearman correlation: 0.3682593037214886
+
+Top 15 original features by multi-class Fisher score:
+                                   feature  multiclass_fisher_score
+      _HarmonicChangeDetectionFunction_Std                 1.342644
+                   _Zero-crossingrate_Mean                 0.945840
+_HarmonicChangeDetectionFunction_PeriodAmp                 0.923538
+                        _Pulseclarity_Mean                 0.657769
+                        _Eventdensity_Mean                 0.652385
+                          _Brightness_Mean                 0.422581
+                   _EntropyofSpectrum_Mean                 0.409656
+     _HarmonicChangeDetectionFunction_Mean                 0.352946
+                              _MFCC_Mean_1                 0.345498
+                    _Spectralcentroid_Mean                 0.207665
+                          _AttackTime_Mean                 0.183495
+                         _Fluctuation_Mean                 0.183474
+                              _MFCC_Mean_2                 0.164751
+                           _Roughness_Mean                 0.150828
+                    _Spectralskewness_Mean                 0.141847
+
+Top 15 PCA components by multi-class Fisher score:
+principal_component  multiclass_fisher_score
+                PC1                 0.539387
+                PC2                 0.538905
+                PC3                 0.310777
+                PC6                 0.117793
+               PC15                 0.080481
+               PC20                 0.078473
+               PC44                 0.049698
+               PC29                 0.041627
+               PC38                 0.039934
+                PC7                 0.031403
+               PC25                 0.028197
+               PC18                 0.027696
+                PC8                 0.026294
+               PC12                 0.025905
+               PC34                 0.025787

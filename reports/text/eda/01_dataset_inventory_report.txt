@@ -1,0 +1,31 @@
+
+DATASET INVENTORY REPORT
+
+CSV path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+
+Shape:
+- Rows   : 400
+- Columns: 51
+
+Target column:
+- Class
+
+Class count:
+- 4
+
+Numeric feature count:
+- 50
+
+Duplicate rows:
+- 12
+
+Assignment compatibility:
+- More than 10 numerical features: True
+- More than 2 classes: True
+
+Class distribution:
+class_label  count  percentage
+      relax    100        25.0
+      happy    100        25.0
+        sad    100        25.0
+      angry    100        25.0
