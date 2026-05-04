@@ -1,0 +1,21 @@
+Statistical Testing and Manual Calculation Notes
+
+Hypotheses:
+H0: μ_class_a = μ_class_b
+H1: μ_class_a ≠ μ_class_b
+
+Welch t statistic:
+t = (x̄1 - x̄2) / sqrt(s1²/n1 + s2²/n2)
+
+Welch-Satterthwaite degrees of freedom:
+df = (s1²/n1 + s2²/n2)² / [ (s1²/n1)²/(n1-1) + (s2²/n2)²/(n2-1) ]
+
+95% confidence interval for mean difference:
+(x̄1 - x̄2) ± t_(0.975, df) * sqrt(s1²/n1 + s2²/n2)
+
+Cohen's d:
+d = (x̄1 - x̄2) / sp
+sp = sqrt(((n1-1)s1² + (n2-1)s2²) / (n1+n2-2))
+
+Pairwise Fisher Distance:
+FD = (μ1 - μ2)² / (σ1² + σ2²)

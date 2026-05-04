@@ -1,0 +1,24 @@
+PCA vs LDA Comparison
+
+CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+Target Column: Class
+Rows Used: 388
+
+Separability Metrics
+embedding  silhouette_score  davies_bouldin_score  calinski_harabasz_score
+   PCA_2D          0.037892              3.754672                71.968649
+   LDA_2D          0.306186              1.215227               346.499539
+
+PCA 2D Class Centroids
+Class      Dim1      Dim2
+angry  0.119048 -1.909581
+happy  2.807501 -0.363935
+relax -1.737705  1.518132
+  sad -1.148065  0.743962
+
+LDA 2D Class Centroids
+Class      Dim1      Dim2
+angry -0.448529  2.537403
+happy -2.610210 -1.271657
+relax  2.223116 -0.789578
+  sad  0.800462 -0.484285

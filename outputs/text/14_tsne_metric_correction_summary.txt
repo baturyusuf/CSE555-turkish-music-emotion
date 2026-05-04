@@ -1,0 +1,47 @@
+t-SNE Metric Correction Summary
+
+CSV Path:
+C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+
+Target Column:
+Class
+
+Rows Used:
+388
+
+Numerical Features:
+50
+
+Class Labels:
+['angry', 'happy', 'relax', 'sad']
+
+Important Methodological Note:
+t-SNE is not a clustering algorithm. Therefore, ARI and NMI should not be computed directly from true labels alone.
+In this corrected analysis, two different evaluations are reported:
+
+1. Class-based silhouette in t-SNE space:
+   This measures how separated the true class labels appear after t-SNE projection.
+
+2. K-Means on t-SNE embedding:
+   K-Means is applied to the 2D t-SNE coordinates, and ARI/NMI are computed between K-Means cluster labels and true emotion labels.
+
+Class-Based Silhouette Scores:
+ perplexity  class_based_silhouette_in_tsne_space                                                                                 note
+          5                              0.025793 This is not a clustering metric; it measures true-label separability in t-SNE space.
+         15                              0.033833 This is not a clustering metric; it measures true-label separability in t-SNE space.
+         30                              0.099862 This is not a clustering metric; it measures true-label separability in t-SNE space.
+         50                              0.111751 This is not a clustering metric; it measures true-label separability in t-SNE space.
+
+K-Means on t-SNE Embedding Metrics:
+ perplexity  kmeans_k  adjusted_rand_index  normalized_mutual_info  homogeneity  completeness  v_measure  cluster_silhouette
+          5         4             0.148831                0.188742     0.188576      0.188909   0.188742            0.404948
+         15         4             0.207996                0.236232     0.235794      0.236672   0.236232            0.374948
+         30         4             0.290140                0.312316     0.311674      0.312960   0.312316            0.397721
+         50         4             0.272602                0.313342     0.313267      0.313417   0.313342            0.401833
+
+Selected Perplexity for Crosstab and Cluster Visualization:
+30
+
+Selected Perplexity Metrics:
+ perplexity  kmeans_k  adjusted_rand_index  normalized_mutual_info  homogeneity  completeness  v_measure  cluster_silhouette
+         30         4              0.29014                0.312316     0.311674       0.31296   0.312316            0.397721

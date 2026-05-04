@@ -1,0 +1,65 @@
+Clustering Sensitivity and Nonlinear Mapping Analysis
+
+CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+Target Column: Class
+Rows Used: 388
+PCA 2D Explained Variance Ratio: 0.26129130396182687
+
+K-Means Sensitivity
+ k     inertia  adjusted_rand_index  normalized_mutual_info  silhouette_score  n_clusters_detected  n_noise_points
+ 2 2847.857660             0.111408                0.145806          0.386035                    2               0
+ 3 1983.008711             0.213398                0.257108          0.377780                    3               0
+ 4 1387.783167             0.216690                0.266483          0.384544                    4               0
+ 5 1143.824044             0.214531                0.275601          0.365124                    5               0
+ 6  993.603626             0.177186                0.259664          0.340450                    6               0
+ 7  857.211234             0.162023                0.261805          0.349486                    7               0
+ 8  744.989844             0.157450                0.278360          0.347621                    8               0
+ 9  656.272531             0.125515                0.257622          0.345308                    9               0
+10  591.294252             0.128309                0.261760          0.355408                   10               0
+
+DBSCAN eps Sensitivity
+     eps  min_samples  adjusted_rand_index  normalized_mutual_info  silhouette_score  n_clusters_detected  n_noise_points
+0.629574            5         4.626374e-03                0.056470         -0.046793                    4              74
+0.666754            5         4.256606e-03                0.039626         -0.185283                    4              60
+0.738510            5         2.182096e-03                0.049075          0.091764                    4              46
+0.854460            5         4.288295e-03                0.059304          0.112149                    4              29
+0.960761            5         7.985750e-03                0.055559          0.329388                    2              14
+1.025735            5         7.564146e-03                0.055829          0.327938                    2              11
+1.204255            5        -8.648575e-05                0.002721          0.379323                    1               7
+1.449861            5         1.832500e-07                0.005103          0.305320                    1               1
+
+Selected DBSCAN eps: 1.0257352102034234
+Selected DBSCAN Metrics: {'adjusted_rand_index': 0.007564145510707796, 'normalized_mutual_info': 0.05582850102649941, 'silhouette_score': 0.3279379568178741, 'n_clusters_detected': 2, 'n_noise_points': 11}
+
+t-SNE Perplexity Metrics Based on True Class Labels in Embedding Space
+ perplexity  adjusted_rand_index  normalized_mutual_info  silhouette_score  n_clusters_detected  n_noise_points
+          5                  1.0                     1.0          0.025793                    4               0
+         15                  1.0                     1.0          0.033833                    4               0
+         30                  1.0                     1.0          0.099862                    4               0
+         50                  1.0                     1.0          0.111751                    4               0
+
+SOM Status:
+SOM analysis completed.
+
+SOM Neuron Purity Summary
+winning_neuron  total_hits majority_class  majority_count  purity
+           1_7           7          happy               7     1.0
+           1_8           7          happy               7     1.0
+           7_3           7          angry               7     1.0
+           0_8           6          happy               6     1.0
+           9_4           6          happy               6     1.0
+           2_2           5          relax               5     1.0
+           5_0           5          angry               5     1.0
+           5_1           5          angry               5     1.0
+           6_0           5          angry               5     1.0
+           8_1           5          happy               5     1.0
+           8_3           5          angry               5     1.0
+           9_3           5          angry               5     1.0
+           9_5           5          happy               5     1.0
+           9_6           5          happy               5     1.0
+           0_1           4            sad               4     1.0
+           0_2           4            sad               4     1.0
+           2_6           4            sad               4     1.0
+           3_8           4          happy               4     1.0
+           4_3           4          relax               4     1.0
+           4_6           4            sad               4     1.0

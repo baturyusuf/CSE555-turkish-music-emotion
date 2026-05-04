@@ -1,0 +1,3 @@
+method,adjusted_rand_index,normalized_mutual_info,silhouette_score,n_clusters_detected,n_noise_points
+KMeans_on_PCA2D,0.21669021311869188,0.26648333345612724,0.3845439074736026,4,0
+DBSCAN_on_PCA2D,0.00798575022279387,0.055558827055745816,0.39438035405123584,2,14

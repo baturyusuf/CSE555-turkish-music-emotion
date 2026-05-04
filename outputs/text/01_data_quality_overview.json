@@ -1,0 +1,13 @@
+{
+    "csv_path": "C:\\Users\\Yusuf\\Documents\\GitHub\\CSE555 turkish music emotion\\data\\raw\\Acoustic Features.csv",
+    "raw_rows": 400,
+    "raw_columns": 51,
+    "target_column": "Class",
+    "class_count": 4,
+    "numeric_feature_count": 50,
+    "missing_values_total": 0,
+    "duplicate_rows_removed": 12,
+    "rows_after_duplicate_removal": 388,
+    "rows_after_outlier_capping": 388,
+    "total_cells_capped": 426
+}

@@ -1,0 +1,32 @@
+Hypothesis Testing
+
+CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+Target Column: Class
+Selected Feature: _HarmonicChangeDetectionFunction_Std
+Selected Class Pair: angry vs relax
+
+Null Hypothesis (H0): The class means are equal.
+Alternative Hypothesis (H1): The class means are different.
+
+Selected Pair Ranking Basis
+                                   feature class_a class_b  pairwise_fisher_distance  cohens_d_abs
+      _HarmonicChangeDetectionFunction_Std   angry   relax                  3.612846      2.688065
+                   _Zero-crossingrate_Mean   happy   relax                  3.568087      2.673935
+_HarmonicChangeDetectionFunction_PeriodAmp   happy   relax                  2.739868      2.336259
+                        _Eventdensity_Mean   happy   relax                  2.634594      2.295751
+      _HarmonicChangeDetectionFunction_Std   angry     sad                  2.570556      2.267426
+      _HarmonicChangeDetectionFunction_Std   happy   relax                  2.158939      2.076195
+_HarmonicChangeDetectionFunction_PeriodAmp   happy     sad                  2.140666      2.061645
+                   _Zero-crossingrate_Mean   angry   happy                  2.015180      2.007771
+                        _Pulseclarity_Mean   happy   relax                  1.866693      1.934619
+                        _Pulseclarity_Mean   happy     sad                  1.848907      1.928107
+                          _Brightness_Mean   happy   relax                  1.685165      1.833555
+_HarmonicChangeDetectionFunction_PeriodAmp   angry   relax                  1.607442      1.793010
+                   _EntropyofSpectrum_Mean   happy   relax                  1.553585      1.759320
+                   _Zero-crossingrate_Mean   happy     sad                  1.483861      1.723901
+                   _EntropyofSpectrum_Mean   happy     sad                  1.412179      1.675646
+
+T-Test Results
+ sample_size_per_class                              feature class_a class_b  t_statistic      p_value  cohens_d decision_alpha_0_05
+                    36 _HarmonicChangeDetectionFunction_Std   angry   relax   -12.223350 5.439888e-19 -2.881071           Reject H0
+                    64 _HarmonicChangeDetectionFunction_Std   angry   relax   -15.350077 1.484190e-30 -2.713536           Reject H0

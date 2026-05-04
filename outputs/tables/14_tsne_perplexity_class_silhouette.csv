@@ -1,0 +1,5 @@
+perplexity,class_based_silhouette_in_tsne_space,note
+5,0.02579345926642418,This is not a clustering metric; it measures true-label separability in t-SNE space.
+15,0.03383340686559677,This is not a clustering metric; it measures true-label separability in t-SNE space.
+30,0.09986153990030289,This is not a clustering metric; it measures true-label separability in t-SNE space.
+50,0.11175085604190826,This is not a clustering metric; it measures true-label separability in t-SNE space.

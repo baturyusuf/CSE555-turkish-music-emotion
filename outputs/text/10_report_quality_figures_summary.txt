@@ -1,0 +1,41 @@
+Report-Quality Figure Production
+
+CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+Target Column: Class
+Rows Used: 388
+Top Fisher Features Used for Class-Wise Boxplots:
+      _HarmonicChangeDetectionFunction_Std
+                   _Zero-crossingrate_Mean
+_HarmonicChangeDetectionFunction_PeriodAmp
+                        _Pulseclarity_Mean
+                        _Eventdensity_Mean
+                   _EntropyofSpectrum_Mean
+                          _Brightness_Mean
+                         _Fluctuation_Mean
+
+Top Outlier-Affected Features Used for Class-Wise Boxplots:
+                              _AttackTime_Mean
+                        _Spectralkurtosis_Mean
+                            _Chromagram_Mean_7
+                            _Chromagram_Mean_4
+                            _Chromagram_Mean_2
+                        _Spectralskewness_Mean
+                               _Roughness_Mean
+_HarmonicChangeDetectionFunction_PeriodEntropy
+                                  _MFCC_Mean_6
+                                 _MFCC_Mean_13
+
+PCA Eigenvalue-Fisher Overview:
+principal_component  eigenvalue  explained_variance_ratio  cumulative_explained_variance_ratio  multiclass_fisher_score
+                PC1    8.877002                  0.177082                             0.177082                 0.523273
+                PC2    4.221322                  0.084209                             0.261291                 0.651109
+                PC3    3.379622                  0.067418                             0.328710                 0.306725
+                PC4    2.279596                  0.045474                             0.374184                 0.029833
+                PC5    2.158837                  0.043065                             0.417249                 0.020257
+                PC6    2.027086                  0.040437                             0.457687                 0.141216
+                PC7    1.663386                  0.033182                             0.490869                 0.012185
+                PC8    1.622040                  0.032357                             0.523226                 0.005481
+                PC9    1.426580                  0.028458                             0.551684                 0.007011
+               PC10    1.362692                  0.027184                             0.578867                 0.014815
+               PC11    1.360186                  0.027134                             0.606001                 0.011499
+               PC12    1.254021                  0.025016                             0.631017                 0.016136

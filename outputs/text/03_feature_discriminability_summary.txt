@@ -1,0 +1,47 @@
+Feature Discriminability
+
+CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+Target Column: Class
+Rows Used: 388
+Numerical Features: 50
+
+Top 15 Features by Multi-Class Fisher Score
+                                   feature  multiclass_fisher_score
+      _HarmonicChangeDetectionFunction_Std                 1.328385
+                   _Zero-crossingrate_Mean                 0.985252
+_HarmonicChangeDetectionFunction_PeriodAmp                 0.929150
+                        _Pulseclarity_Mean                 0.693210
+                        _Eventdensity_Mean                 0.641541
+                   _EntropyofSpectrum_Mean                 0.421403
+                          _Brightness_Mean                 0.419163
+                         _Fluctuation_Mean                 0.394917
+     _HarmonicChangeDetectionFunction_Mean                 0.370690
+                              _MFCC_Mean_1                 0.369925
+                          _AttackTime_Mean                 0.286879
+                    _Spectralcentroid_Mean                 0.209823
+                              _MFCC_Mean_2                 0.189579
+                    _Spectralskewness_Mean                 0.178129
+                           _Roughness_Mean                 0.162839
+
+Top 20 Pairwise Fisher Distances
+class_a class_b                                    feature  pairwise_fisher_distance
+  angry   relax       _HarmonicChangeDetectionFunction_Std                  3.612846
+  happy   relax                    _Zero-crossingrate_Mean                  3.568087
+  happy   relax _HarmonicChangeDetectionFunction_PeriodAmp                  2.739868
+  happy   relax                         _Eventdensity_Mean                  2.634594
+  angry     sad       _HarmonicChangeDetectionFunction_Std                  2.570556
+  happy   relax       _HarmonicChangeDetectionFunction_Std                  2.158939
+  happy     sad _HarmonicChangeDetectionFunction_PeriodAmp                  2.140666
+  angry   happy                    _Zero-crossingrate_Mean                  2.015180
+  happy   relax                         _Pulseclarity_Mean                  1.866693
+  happy     sad                         _Pulseclarity_Mean                  1.848907
+  happy   relax                           _Brightness_Mean                  1.685165
+  angry   relax _HarmonicChangeDetectionFunction_PeriodAmp                  1.607442
+  happy   relax                    _EntropyofSpectrum_Mean                  1.553585
+  happy     sad                    _Zero-crossingrate_Mean                  1.483861
+  happy     sad                    _EntropyofSpectrum_Mean                  1.412179
+  angry   relax                          _Fluctuation_Mean                  1.297676
+  happy   relax                               _MFCC_Mean_1                  1.294862
+  angry   happy      _HarmonicChangeDetectionFunction_Mean                  1.279526
+  happy     sad       _HarmonicChangeDetectionFunction_Std                  1.261430
+  happy     sad                         _Eventdensity_Mean                  1.240936

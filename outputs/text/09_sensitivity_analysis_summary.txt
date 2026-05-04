@@ -1,0 +1,49 @@
+Sensitivity Analysis
+
+CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+Target Column: Class
+
+Dataset Variant Overview
+                     variant  rows  features  class_count  min_class_count  max_class_count  total_capped_values
+                         raw   400        50            4              100              100                    0
+           duplicate_cleaned   388        50            4               96               98                    0
+duplicate_cleaned_iqr_capped   388        50            4               96               98                  426
+
+Components Needed for Variance Thresholds
+ threshold  components_needed                      variant
+      0.70                 16                          raw
+      0.80                 22                          raw
+      0.90                 30                          raw
+      0.95                 35                          raw
+      0.70                 16            duplicate_cleaned
+      0.80                 22            duplicate_cleaned
+      0.90                 30            duplicate_cleaned
+      0.95                 35            duplicate_cleaned
+      0.70                 16 duplicate_cleaned_iqr_capped
+      0.80                 21 duplicate_cleaned_iqr_capped
+      0.90                 29 duplicate_cleaned_iqr_capped
+      0.95                 34 duplicate_cleaned_iqr_capped
+
+PCA/LDA Separability by Dataset Variant
+                     variant embedding  silhouette_score  davies_bouldin_score  calinski_harabasz_score
+                         raw    PCA_2D          0.032956              3.586788                71.179464
+                         raw    LDA_2D          0.301411              1.205100               353.863592
+           duplicate_cleaned    PCA_2D          0.039522              3.748451                69.982302
+           duplicate_cleaned    LDA_2D          0.299398              1.192898               340.594068
+duplicate_cleaned_iqr_capped    PCA_2D          0.037892              3.754672                71.968649
+duplicate_cleaned_iqr_capped    LDA_2D          0.306186              1.215227               346.499539
+
+Top Feature Fisher Rank Stability
+                                   feature  multiclass_fisher_score_duplicate_cleaned  multiclass_fisher_score_duplicate_cleaned_iqr_capped  multiclass_fisher_score_raw  rank_duplicate_cleaned  rank_duplicate_cleaned_iqr_capped  rank_raw
+                          _AttackTime_Mean                                   0.175764                                              0.286879                     0.183495                    12.0                               11.0      11.0
+                          _Brightness_Mean                                   0.417557                                              0.419163                     0.422581                     6.0                                7.0       6.0
+                   _EntropyofSpectrum_Mean                                   0.399826                                              0.421403                     0.409656                     7.0                                6.0       7.0
+                        _Eventdensity_Mean                                   0.623439                                              0.641541                     0.652385                     5.0                                5.0       5.0
+                         _Fluctuation_Mean                                   0.183483                                              0.394917                     0.183474                    11.0                                8.0      12.0
+     _HarmonicChangeDetectionFunction_Mean                                   0.370224                                              0.370690                     0.352946                     8.0                                9.0       8.0
+_HarmonicChangeDetectionFunction_PeriodAmp                                   0.904616                                              0.929150                     0.923538                     3.0                                3.0       3.0
+      _HarmonicChangeDetectionFunction_Std                                   1.312987                                              1.328385                     1.342644                     1.0                                1.0       1.0
+                              _MFCC_Mean_1                                   0.342038                                              0.369925                     0.345498                     9.0                               10.0       9.0
+                        _Pulseclarity_Mean                                   0.663105                                              0.693210                     0.657769                     4.0                                4.0       4.0
+                    _Spectralcentroid_Mean                                   0.210563                                              0.209823                     0.207665                    10.0                               12.0      10.0
+                   _Zero-crossingrate_Mean                                   0.960632                                              0.985252                     0.945840                     2.0                                2.0       2.0

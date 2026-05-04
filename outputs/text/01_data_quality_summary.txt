@@ -1,0 +1,45 @@
+Data Quality Summary
+
+CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+Target Column: Class
+Rows: 400
+Columns: 51
+Numeric Features: 50
+Class Count: 4
+Missing Values (total): 0
+Duplicate Rows Removed: 12
+Rows After Duplicate Removal: 388
+Rows After IQR-Based Capping: 388
+Total Capped Cells: 426
+
+Raw Class Distribution
+class  count
+relax    100
+happy    100
+  sad    100
+angry    100
+
+Clean Class Distribution
+class  count
+  sad     98
+relax     97
+angry     97
+happy     96
+
+Top 15 Features by Number of Capped Values
+                                       feature  total_capped_values  below_lower_before  above_upper_before
+                              _AttackTime_Mean                   37                   0                  37
+                        _Spectralkurtosis_Mean                   31                   0                  31
+                            _Chromagram_Mean_7                   21                   0                  21
+                            _Chromagram_Mean_4                   20                   0                  20
+                            _Chromagram_Mean_2                   18                   0                  18
+                        _Spectralskewness_Mean                   17                   0                  17
+                               _Roughness_Mean                   17                   0                  17
+_HarmonicChangeDetectionFunction_PeriodEntropy                   16                  13                   3
+                                  _MFCC_Mean_6                   15                   8                   7
+                                 _MFCC_Mean_13                   14                  11                   3
+                                  _MFCC_Mean_1                   14                   2                  12
+                       _EntropyofSpectrum_Mean                   12                  12                   0
+                                 _MFCC_Mean_10                   12                   8                   4
+                                  _MFCC_Mean_8                   12                   6                   6
+                             _Fluctuation_Mean                   12                   0                  12

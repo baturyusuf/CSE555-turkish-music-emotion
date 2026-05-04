@@ -1,0 +1,4 @@
+variant,rows,features,class_count,min_class_count,max_class_count,total_capped_values
+raw,400,50,4,100,100,0
+duplicate_cleaned,388,50,4,96,98,0
+duplicate_cleaned_iqr_capped,388,50,4,96,98,426

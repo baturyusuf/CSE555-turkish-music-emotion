@@ -1,0 +1,5 @@
+perplexity,adjusted_rand_index,normalized_mutual_info,silhouette_score,n_clusters_detected,n_noise_points
+5,1.0,1.0,0.02579345926642418,4,0
+15,1.0,1.0,0.03383340686559677,4,0
+30,1.0,1.0,0.09986153990030289,4,0
+50,1.0,1.0,0.11175085604190826,4,0

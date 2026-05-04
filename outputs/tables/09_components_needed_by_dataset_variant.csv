@@ -1,0 +1,13 @@
+threshold,components_needed,variant
+0.7,16,raw
+0.8,22,raw
+0.9,30,raw
+0.95,35,raw
+0.7,16,duplicate_cleaned
+0.8,22,duplicate_cleaned
+0.9,30,duplicate_cleaned
+0.95,35,duplicate_cleaned
+0.7,16,duplicate_cleaned_iqr_capped
+0.8,21,duplicate_cleaned_iqr_capped
+0.9,29,duplicate_cleaned_iqr_capped
+0.95,34,duplicate_cleaned_iqr_capped

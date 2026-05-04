@@ -1,0 +1,48 @@
+Manual Calculation Support
+
+CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+Target Column: Class
+Chosen Feature for Hand Calculation: _HarmonicChangeDetectionFunction_Std
+Multi-Class Fisher Score of Chosen Feature: 1.3283851329234433
+
+Per-Class Contributions to Fisher Score
+class  n  class_mean  overall_mean  between_contribution  within_contribution
+angry 97   -1.004144  2.380684e-16             97.805635            44.064763
+happy 96   -0.432475  2.380684e-16             17.955299            26.355189
+relax 97    0.897783  2.380684e-16             78.183351            52.054274
+  sad 98    0.528925  2.380684e-16             27.416617            44.164873
+
+Best Class Pairs for Chosen Feature
+class_a class_b  pairwise_fisher_distance  cohens_d
+  angry   relax                  3.612846 -2.688065
+  angry     sad                  2.570556 -2.267426
+  happy   relax                  2.158939 -2.076195
+  happy     sad                  1.261430 -1.586347
+  angry   happy                  0.443770 -0.941486
+  relax     sad                  0.136392  0.522405
+
+Welch t-test Components for a 36-vs-36 Sample Draw
+ n1  n2     mean1    mean2     var1     var2  mean_difference  standard_error  t_statistic_manual  welch_df_manual  cohens_d  pairwise_fisher_distance
+ 36  36 -1.130654 0.987815 0.498884 0.582466        -2.118468        0.173313           -12.22335        69.584272 -2.881071                  4.150286
+
+PC1 Summary
+Eigenvalue: 8.877002238283957
+Explained Variance Ratio: 0.17708246733071603
+
+Top 15 Absolute PC1 Loadings
+                                   feature  PC1_loading  abs_loading
+                   _EntropyofSpectrum_Mean     0.315133     0.315133
+                    _Spectralcentroid_Mean     0.310595     0.310595
+                    _Spectralskewness_Mean    -0.301429     0.301429
+                          _Brightness_Mean     0.298847     0.298847
+                    _Spectralkurtosis_Mean    -0.293002     0.293002
+                             _Rolloff_Mean     0.291800     0.291800
+                              _MFCC_Mean_1    -0.275885     0.275885
+                      _Spectralspread_Mean     0.252525     0.252525
+                   _Zero-crossingrate_Mean     0.251210     0.251210
+                    _Spectralflatness_Mean     0.187245     0.187245
+_HarmonicChangeDetectionFunction_PeriodAmp     0.183008     0.183008
+                        _Eventdensity_Mean     0.180292     0.180292
+                        _Pulseclarity_Mean     0.165412     0.165412
+      _HarmonicChangeDetectionFunction_Std    -0.137982     0.137982
+                           _Roughness_Mean     0.132276     0.132276

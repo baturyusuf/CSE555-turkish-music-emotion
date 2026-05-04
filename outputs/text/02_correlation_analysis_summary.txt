@@ -1,0 +1,42 @@
+Correlation Analysis
+
+CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+Target Column: Class
+Rows Used: 388
+Numerical Features: 50
+
+Top 15 Absolute Feature-Feature Correlations
+              feature_1               feature_2  abs_correlation  correlation
+ _Spectralskewness_Mean  _Spectralkurtosis_Mean         0.975859     0.975859
+          _Rolloff_Mean  _Spectralcentroid_Mean         0.958250     0.958250
+       _Brightness_Mean _EntropyofSpectrum_Mean         0.932733     0.932733
+          _Rolloff_Mean    _Spectralspread_Mean         0.919565     0.919565
+           _MFCC_Mean_1        _Brightness_Mean         0.904055    -0.904055
+ _Spectralcentroid_Mean _EntropyofSpectrum_Mean         0.899621     0.899621
+        _RMSenergy_Mean         _Roughness_Mean         0.892743     0.892743
+          _Rolloff_Mean  _Spectralkurtosis_Mean         0.891290    -0.891290
+ _Spectralcentroid_Mean  _Spectralskewness_Mean         0.888803    -0.888803
+          _Rolloff_Mean  _Spectralskewness_Mean         0.885531    -0.885531
+ _Spectralcentroid_Mean  _Spectralkurtosis_Mean         0.865061    -0.865061
+ _Spectralskewness_Mean _EntropyofSpectrum_Mean         0.864345    -0.864345
+ _Spectralcentroid_Mean    _Spectralspread_Mean         0.859240     0.859240
+       _Brightness_Mean  _Spectralcentroid_Mean         0.858284     0.858284
+_Zero-crossingrate_Mean        _Brightness_Mean         0.847463     0.847463
+
+Top 15 Feature-Class Associations
+                                   feature  anova_f_value  anova_p_value  correlation_ratio_eta
+      _HarmonicChangeDetectionFunction_Std     170.033297   3.975636e-70               0.755326
+                   _Zero-crossingrate_Mean     126.112283   7.300349e-57               0.704475
+_HarmonicChangeDetectionFunction_PeriodAmp     118.931222   1.767011e-54               0.694001
+                        _Pulseclarity_Mean      88.730841   1.230779e-43               0.639848
+                        _Eventdensity_Mean      82.117306   4.616643e-41               0.625153
+                   _EntropyofSpectrum_Mean      53.939635   4.091264e-29               0.544491
+                          _Brightness_Mean      53.652815   5.528564e-29               0.543470
+                         _Fluctuation_Mean      50.549382   1.480688e-27               0.532082
+     _HarmonicChangeDetectionFunction_Mean      47.448276   4.184836e-26               0.520039
+                              _MFCC_Mean_1      47.350376   4.654772e-26               0.519647
+                          _AttackTime_Mean      36.720536   6.944644e-21               0.472151
+                    _Spectralcentroid_Mean      26.857407   8.652834e-16               0.416453
+                              _MFCC_Mean_2      24.266147   2.120501e-14               0.399208
+                    _Spectralskewness_Mean      22.800484   1.324026e-13               0.388840
+                           _Roughness_Mean      20.843365   1.567032e-12               0.374213

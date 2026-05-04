@@ -1,0 +1,69 @@
+PCA Analysis
+
+CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+Target Column: Class
+Rows Used: 388
+Numerical Features: 50
+
+Correlation Between Eigenvalues and PCA Fisher Scores
+Pearson: 0.8266292395016313
+Spearman: 0.5008883553421368
+
+Top 15 PCA Components by Fisher Score
+principal_component  multiclass_fisher_score
+                PC2                 0.651109
+                PC1                 0.523273
+                PC3                 0.306725
+                PC6                 0.141216
+               PC15                 0.055457
+               PC20                 0.045704
+               PC21                 0.044445
+               PC14                 0.044404
+               PC44                 0.038966
+                PC4                 0.029833
+               PC25                 0.028579
+               PC41                 0.027839
+               PC26                 0.027833
+                PC5                 0.020257
+               PC27                 0.018781
+
+Explained Variance Overview (Top 15 PCs)
+principal_component  eigenvalue  explained_variance_ratio  cumulative_explained_variance_ratio
+                PC1    8.877002                  0.177082                             0.177082
+                PC2    4.221322                  0.084209                             0.261291
+                PC3    3.379622                  0.067418                             0.328710
+                PC4    2.279596                  0.045474                             0.374184
+                PC5    2.158837                  0.043065                             0.417249
+                PC6    2.027086                  0.040437                             0.457687
+                PC7    1.663386                  0.033182                             0.490869
+                PC8    1.622040                  0.032357                             0.523226
+                PC9    1.426580                  0.028458                             0.551684
+               PC10    1.362692                  0.027184                             0.578867
+               PC11    1.360186                  0.027134                             0.606001
+               PC12    1.254021                  0.025016                             0.631017
+               PC13    1.168316                  0.023306                             0.654323
+               PC14    1.109053                  0.022124                             0.676447
+               PC15    1.073394                  0.021413                             0.697859
+
+Top 20 Original Features by Fisher Score
+                                   feature  multiclass_fisher_score
+      _HarmonicChangeDetectionFunction_Std                 1.328385
+                   _Zero-crossingrate_Mean                 0.985252
+_HarmonicChangeDetectionFunction_PeriodAmp                 0.929150
+                        _Pulseclarity_Mean                 0.693210
+                        _Eventdensity_Mean                 0.641541
+                   _EntropyofSpectrum_Mean                 0.421403
+                          _Brightness_Mean                 0.419163
+                         _Fluctuation_Mean                 0.394917
+     _HarmonicChangeDetectionFunction_Mean                 0.370690
+                              _MFCC_Mean_1                 0.369925
+                          _AttackTime_Mean                 0.286879
+                    _Spectralcentroid_Mean                 0.209823
+                              _MFCC_Mean_2                 0.189579
+                    _Spectralskewness_Mean                 0.178129
+                           _Roughness_Mean                 0.162839
+                    _Spectralkurtosis_Mean                 0.141238
+                        _Chromagram_Mean_7                 0.126104
+                             _Rolloff_Mean                 0.121771
+                          _Roughness_Slope                 0.116201
+                           _RMSenergy_Mean                 0.103489

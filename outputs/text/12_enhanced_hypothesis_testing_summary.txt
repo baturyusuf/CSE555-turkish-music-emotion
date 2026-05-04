@@ -1,0 +1,34 @@
+Enhanced Statistical Testing
+
+CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+Target Column: Class
+Selected Feature: _HarmonicChangeDetectionFunction_Std
+Selected Class Pair: angry vs relax
+
+Top Candidate Feature-Class Pairs
+class_a class_b                                    feature  pairwise_fisher_distance  cohens_d  cohens_d_abs
+  angry   relax       _HarmonicChangeDetectionFunction_Std                  3.612846 -2.688065      2.688065
+  happy   relax                    _Zero-crossingrate_Mean                  3.568087  2.673935      2.673935
+  happy   relax _HarmonicChangeDetectionFunction_PeriodAmp                  2.739868  2.336259      2.336259
+  happy   relax                         _Eventdensity_Mean                  2.634594  2.295751      2.295751
+  angry     sad       _HarmonicChangeDetectionFunction_Std                  2.570556 -2.267426      2.267426
+  happy   relax       _HarmonicChangeDetectionFunction_Std                  2.158939 -2.076195      2.076195
+  happy     sad _HarmonicChangeDetectionFunction_PeriodAmp                  2.140666  2.061645      2.061645
+  angry   happy                    _Zero-crossingrate_Mean                  2.015180 -2.007771      2.007771
+  happy   relax                         _Pulseclarity_Mean                  1.866693  1.934619      1.934619
+  happy     sad                         _Pulseclarity_Mean                  1.848907  1.928107      1.928107
+  happy   relax                           _Brightness_Mean                  1.685165  1.833555      1.833555
+  angry   relax _HarmonicChangeDetectionFunction_PeriodAmp                  1.607442  1.793010      1.793010
+  happy   relax                    _EntropyofSpectrum_Mean                  1.553585  1.759320      1.759320
+  happy     sad                    _Zero-crossingrate_Mean                  1.483861  1.723901      1.723901
+  happy     sad                    _EntropyofSpectrum_Mean                  1.412179  1.675646      1.675646
+
+Assumption Tests and t-test Results
+                             feature class_a class_b  sample_size_per_class  random_state  student_t_statistic  student_p_value  welch_t_statistic_scipy  welch_p_value_scipy decision_alpha_0_05  shapiro_class_a_statistic  shapiro_class_a_p_value  shapiro_class_b_statistic  shapiro_class_b_p_value  levene_statistic  levene_p_value  n1  n2     mean1    mean2     var1     var2  mean_difference  standard_error  welch_t_statistic_manual  welch_df_manual  welch_p_value_manual  ci_95_low  ci_95_high  cohens_d  hedges_g  pairwise_fisher_distance
+_HarmonicChangeDetectionFunction_Std   angry   relax                     36            42           -12.223350     4.930975e-19               -12.223350         5.439888e-19           Reject H0                    0.99318                 0.998191                   0.960552                 0.223558          0.264302        0.608799  36  36 -1.130654 0.987815 0.498884 0.582466        -2.118468        0.173313                -12.223350        69.584272          5.439895e-19  -2.464167    -1.77277 -2.881071 -2.850092                  4.150286
+_HarmonicChangeDetectionFunction_Std   angry   relax                     64            43           -15.363372     1.159268e-30               -15.363372         1.160771e-30           Reject H0                    0.98292                 0.519371                   0.963154                 0.053170          0.018934        0.890775  64  64 -1.031248 0.908216 0.506348 0.513583        -1.939464        0.126240                -15.363372       125.993598          1.160786e-30  -2.189289    -1.68964 -2.715886 -2.699688                  3.688019
+
+Repeated Sampling Stability Summary
+ sample_size_per_class  repetitions  rejection_rate_alpha_0_05  median_p_value   p_value_q1   p_value_q3  mean_cohens_d  std_cohens_d  mean_difference_mean  mean_difference_std
+                    36          500                        1.0    1.846188e-17 8.611048e-19 2.505570e-16      -2.708281      0.263896             -1.902646             0.136786
+                    64          500                        1.0    4.024301e-30 2.169185e-31 8.984292e-29      -2.695048      0.147048             -1.900644             0.071815

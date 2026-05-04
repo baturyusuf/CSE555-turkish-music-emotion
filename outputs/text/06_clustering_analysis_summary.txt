@@ -1,0 +1,27 @@
+Clustering and Nonlinear Mapping Analysis
+
+CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
+Target Column: Class
+Rows Used: 388
+DBSCAN eps selected from 90th percentile of 5-NN distance: 0.9607611440251655
+
+Clustering Metrics
+         method  adjusted_rand_index  normalized_mutual_info  silhouette_score  n_clusters_detected  n_noise_points
+KMeans_on_PCA2D             0.216690                0.266483          0.384544                    4               0
+DBSCAN_on_PCA2D             0.007986                0.055559          0.394380                    2              14
+
+K-Means Class vs Cluster Crosstab
+kmeans_cluster   0   1   2   3
+class                         
+angry           13  59  24   1
+happy            0  26  69   1
+relax           36   7   8  46
+sad             28  22  10  38
+
+DBSCAN Class vs Label Crosstab
+dbscan_label  -1   0   1
+class                   
+angry          4   1  92
+happy          2   0  94
+relax          6  17  74
+sad            2   5  91
