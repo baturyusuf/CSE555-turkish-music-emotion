@@ -1,32 +1,61 @@
 Hypothesis Testing
 
-CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
-Target Column: Class
-Selected Feature: _HarmonicChangeDetectionFunction_Std
-Selected Class Pair: angry vs relax
+CSV Path:
+C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
 
-Null Hypothesis (H0): The class means are equal.
-Alternative Hypothesis (H1): The class means are different.
+Target Column:
+Class
 
-Selected Pair Ranking Basis
-                                   feature class_a class_b  pairwise_fisher_distance  cohens_d_abs
-      _HarmonicChangeDetectionFunction_Std   angry   relax                  3.612846      2.688065
-                   _Zero-crossingrate_Mean   happy   relax                  3.568087      2.673935
-_HarmonicChangeDetectionFunction_PeriodAmp   happy   relax                  2.739868      2.336259
-                        _Eventdensity_Mean   happy   relax                  2.634594      2.295751
-      _HarmonicChangeDetectionFunction_Std   angry     sad                  2.570556      2.267426
-      _HarmonicChangeDetectionFunction_Std   happy   relax                  2.158939      2.076195
-_HarmonicChangeDetectionFunction_PeriodAmp   happy     sad                  2.140666      2.061645
-                   _Zero-crossingrate_Mean   angry   happy                  2.015180      2.007771
-                        _Pulseclarity_Mean   happy   relax                  1.866693      1.934619
-                        _Pulseclarity_Mean   happy     sad                  1.848907      1.928107
-                          _Brightness_Mean   happy   relax                  1.685165      1.833555
-_HarmonicChangeDetectionFunction_PeriodAmp   angry   relax                  1.607442      1.793010
-                   _EntropyofSpectrum_Mean   happy   relax                  1.553585      1.759320
-                   _Zero-crossingrate_Mean   happy     sad                  1.483861      1.723901
-                   _EntropyofSpectrum_Mean   happy     sad                  1.412179      1.675646
+Rows Used:
+388
 
-T-Test Results
- sample_size_per_class                              feature class_a class_b  t_statistic      p_value  cohens_d decision_alpha_0_05
-                    36 _HarmonicChangeDetectionFunction_Std   angry   relax   -12.223350 5.439888e-19 -2.881071           Reject H0
-                    64 _HarmonicChangeDetectionFunction_Std   angry   relax   -15.350077 1.484190e-30 -2.713536           Reject H0
+Selected Feature:
+_HarmonicChangeDetectionFunction_Std
+
+Selected Class Pair:
+angry vs relax
+
+Selection Source:
+automatic_highest_pairwise_fisher_distance
+
+Post-hoc / Exploratory Note:
+The tested feature and class pair were selected based on separability analysis. Therefore, the t-test is interpreted as an exploratory statistical confirmation rather than a fully pre-registered confirmatory test.
+
+Multiple Testing Control:
+All feature-class pair Welch tests on the full cleaned normalized dataset were computed and corrected using Bonferroni and Benjamini-Hochberg FDR. The selected pair appears below.
+
+Selected Pair Full-Data Row:
+                             feature class_a class_b  n_class_a_full  n_class_b_full  mean_class_a_full  mean_class_b_full  mean_difference_full  pairwise_fisher_distance  cohens_d_full  cohens_d_abs_full  welch_t_full  welch_p_full  bonferroni_p_full  bh_fdr_p_full  multiclass_fisher_score
+_HarmonicChangeDetectionFunction_Std   angry   relax              97              97          -1.004144           0.897783             -1.901927                  3.612846      -2.688065           2.688065    -18.720205  4.631623e-45       1.389487e-42   1.389487e-42                 1.328385
+
+Top 15 Candidate Feature-Class Pairs:
+                                   feature class_a class_b  n_class_a_full  n_class_b_full  mean_class_a_full  mean_class_b_full  mean_difference_full  pairwise_fisher_distance  cohens_d_full  cohens_d_abs_full  welch_t_full  welch_p_full  bonferroni_p_full  bh_fdr_p_full  multiclass_fisher_score
+      _HarmonicChangeDetectionFunction_Std   angry   relax              97              97          -1.004144           0.897783             -1.901927                  3.612846      -2.688065           2.688065    -18.720205  4.631623e-45       1.389487e-42   1.389487e-42                 1.328385
+                   _Zero-crossingrate_Mean   happy   relax              96              97           1.183221          -0.652092              1.835313                  3.568087       2.673935           2.673935     18.537984  2.099540e-42       6.298620e-40   3.149310e-40                 0.985252
+_HarmonicChangeDetectionFunction_PeriodAmp   happy   relax              96              97           0.748407          -0.843828              1.592235                  2.739868       2.336259           2.336259     16.292057  1.974091e-32       5.922274e-30   1.184455e-30                 0.929150
+                        _Eventdensity_Mean   happy   relax              96              97           0.695904          -0.791539              1.487442                  2.634594       2.295751           2.295751     15.942718  6.647587e-37       1.994276e-34   6.647587e-35                 0.641541
+      _HarmonicChangeDetectionFunction_Std   angry     sad              97              98          -1.004144           0.528925             -1.533069                  2.570556      -2.267426           2.267426    -15.830901  1.007358e-36       3.022073e-34   7.555182e-35                 1.328385
+      _HarmonicChangeDetectionFunction_Std   happy   relax              96              97          -0.432475           0.897783             -1.330257                  2.158939      -2.076195           2.076195    -14.445806  1.364345e-31       4.093034e-29   6.821724e-30                 1.328385
+_HarmonicChangeDetectionFunction_PeriodAmp   happy     sad              96              98           0.748407          -0.516529              1.264936                  2.140666       2.061645           2.061645     14.461319  6.514242e-29       1.954273e-26   2.442841e-27                 0.929150
+                   _Zero-crossingrate_Mean   angry   happy              97              96          -0.400599           1.183221             -1.583821                  2.015180      -2.007771           2.007771    -13.943542  6.422121e-31       1.926636e-28   2.752337e-29                 0.985252
+                        _Pulseclarity_Mean   happy   relax              96              97           1.042381          -0.540773              1.583154                  1.866693       1.934619           1.934619     13.404707  1.153776e-27       3.461329e-25   3.845921e-26                 0.693210
+                        _Pulseclarity_Mean   happy     sad              96              98           1.042381          -0.515911              1.558292                  1.848907       1.928107           1.928107     13.356103  2.626881e-27       7.880642e-25   7.880642e-26                 0.693210
+                          _Brightness_Mean   happy   relax              96              97           0.867495          -0.632875              1.500371                  1.685165       1.833555           1.833555     12.767829  4.846531e-26       1.453959e-23   1.211633e-24                 0.419163
+_HarmonicChangeDetectionFunction_PeriodAmp   angry   relax              97              97           0.624990          -0.843828              1.468817                  1.607442       1.793010           1.793010     12.486869  2.622839e-26       7.868517e-24   7.153197e-25                 0.929150
+                   _EntropyofSpectrum_Mean   happy   relax              96              97           0.897642          -0.580770              1.478412                  1.553585       1.759320           1.759320     12.267542  3.602731e-23       1.080819e-20   7.720137e-22                 0.421403
+                   _Zero-crossingrate_Mean   happy     sad              96              98           1.183221          -0.117124              1.300345                  1.483861       1.723901           1.723901     11.988428  5.933456e-25       1.780037e-22   1.369259e-23                 0.985252
+                   _EntropyofSpectrum_Mean   happy     sad              96              98           0.897642          -0.197731              1.095373                  1.412179       1.675646           1.675646     11.737607  6.981854e-23       2.094556e-20   1.396371e-21                 0.421403
+
+t-test Results for Both Sampling Interpretations:
+ sampling_mode  sample_size_requested                                              sampling_interpretation                              feature class_a class_b  random_state decision_alpha_0_05  n_class_a  n_class_b  mean_class_a  mean_class_b  var_class_a  var_class_b  mean_difference  standard_error   welch_df  student_t_statistic  student_p_value  welch_t_statistic  welch_p_value  ci_95_low  ci_95_high  cohens_d  hedges_g  pairwise_fisher_distance  shapiro_class_a_statistic  shapiro_class_a_p_value  shapiro_class_b_statistic  shapiro_class_b_p_value  levene_statistic  levene_p_value
+     per_class                     36                             n=36 samples were drawn from each class. _HarmonicChangeDetectionFunction_Std   angry   relax          1042           Reject H0         36         36     -1.010550      0.857008     0.346190     0.733626        -1.867558        0.173190  62.016243           -10.783269     1.582398e-16         -10.783269   7.444372e-16  -2.213759   -1.521357 -2.541641 -2.514311                  3.229969                   0.966591                 0.339865                   0.940459                 0.052500          2.657165        0.107576
+     per_class                     64                             n=64 samples were drawn from each class. _HarmonicChangeDetectionFunction_Std   angry   relax          2042           Reject H0         64         64     -0.942285      0.862397     0.437675     0.490739        -1.804682        0.120443 125.589656           -14.983731     8.969894e-30         -14.983731   9.713649e-30  -2.043042   -1.566322 -2.648774 -2.632977                  3.508003                   0.965616                 0.071429                   0.986703                 0.722496          0.221392        0.638795
+total_balanced                     36 n=36 total samples were drawn as a balanced two-class sample: 18+18. _HarmonicChangeDetectionFunction_Std   angry   relax          3042           Reject H0         18         18     -1.137194      0.955708     0.590854     0.411172        -2.092902        0.235941  32.940776            -8.870448     2.287440e-10          -8.870448   3.025859e-10  -2.572960   -1.612844 -2.956816 -2.891109                  4.371380                   0.959238                 0.586987                   0.890146                 0.038815          0.080205        0.778737
+total_balanced                     64 n=64 total samples were drawn as a balanced two-class sample: 32+32. _HarmonicChangeDetectionFunction_Std   angry   relax          4042           Reject H0         32         32     -1.006834      0.698852     0.513093     0.477403        -1.705685        0.175935  61.919602            -9.694992     4.869929e-14          -9.694992   4.934954e-14  -2.057383   -1.353988 -2.423748 -2.394310                  2.937277                   0.937098                 0.061959                   0.964971                 0.373262          0.130065        0.719590
+
+Repeated Sampling Stability Summary:
+ sampling_mode  sample_size_requested  repetitions  rejection_rate_alpha_0_05  median_p_value   p_value_q1   p_value_q3  mean_cohens_d  std_cohens_d  mean_hedges_g  std_hedges_g  mean_difference_mean  mean_difference_std
+     per_class                     36          500                        1.0    1.679558e-17 9.035209e-19 3.713620e-16      -2.702766      0.265611      -2.673704      0.262755             -1.890579             0.137286
+     per_class                     64          500                        1.0    2.608284e-30 1.783561e-31 4.035776e-29      -2.704079      0.145715      -2.687952      0.144846             -1.905942             0.077960
+total_balanced                     36          500                        1.0    2.346370e-09 2.620464e-10 1.883079e-08      -2.746412      0.401970      -2.685381      0.393037             -1.905937             0.206596
+total_balanced                     64          500                        1.0    1.277665e-15 9.355979e-17 1.972478e-14      -2.699013      0.277059      -2.666231      0.273694             -1.893551             0.141703

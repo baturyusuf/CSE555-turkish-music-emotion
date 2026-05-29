@@ -1,0 +1,7 @@
+method,input_data,parameters,random_state
+PCA for K-Means and DBSCAN,"duplicate-removed, IQR-capped, z-score normalized features",n_components=2,42
+K-Means on PCA 2D,first two principal components,"k=4, n_init=30",42
+DBSCAN on PCA 2D,first two principal components,"eps=0.960761, min_samples=5, eps_quantile=0.9",deterministic
+t-SNE,original normalized feature matrix,"perplexities=[5, 15, 30, 50], selected_perplexity=30, init=pca, learning_rate=auto/200, iterations=1500",42
+K-Means on t-SNE,2D t-SNE embedding,"k=4, n_init=30",42
+SOM,original normalized feature matrix,"grid=10x10, sigma=1.2, learning_rate=0.5, iterations=5000",42

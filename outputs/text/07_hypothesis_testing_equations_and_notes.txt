@@ -1,0 +1,34 @@
+Hypothesis Testing Notes
+
+Selected feature:
+_HarmonicChangeDetectionFunction_Std
+
+Selected class pair:
+angry vs relax
+
+Selection source:
+automatic_highest_pairwise_fisher_distance
+
+Important interpretation note:
+The feature and class pair were selected after inspecting separability scores. Therefore, the t-test should be interpreted as an exploratory statistical check rather than a fully pre-registered confirmatory test.
+
+Sampling interpretation note:
+Both possible interpretations of the assignment statement were evaluated:
+1. per_class: n=36 and n=64 samples drawn from each class.
+2. total_balanced: n=36 and n=64 total samples split as balanced two-class samples.
+
+Hypotheses:
+H0: μ_angry = μ_relax
+H1: μ_angry ≠ μ_relax
+
+Welch t statistic:
+t = (x̄1 - x̄2) / sqrt(s1²/n1 + s2²/n2)
+
+Welch-Satterthwaite degrees of freedom:
+df = (s1²/n1 + s2²/n2)² / [ (s1²/n1)²/(n1-1) + (s2²/n2)²/(n2-1) ]
+
+Pairwise Fisher Distance:
+FD = (μ1 - μ2)² / (σ1² + σ2²)
+
+Cohen's d:
+d = (x̄1 - x̄2) / sp

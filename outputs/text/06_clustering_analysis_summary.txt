@@ -1,27 +1,76 @@
-Clustering and Nonlinear Mapping Analysis
+Clustering and Nonlinear Embedding Analysis
 
-CSV Path: C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
-Target Column: Class
-Rows Used: 388
-DBSCAN eps selected from 90th percentile of 5-NN distance: 0.9607611440251655
+CSV Path:
+C:\Users\Yusuf\Documents\GitHub\CSE555 turkish music emotion\data\raw\Acoustic Features.csv
 
-Clustering Metrics
-         method  adjusted_rand_index  normalized_mutual_info  silhouette_score  n_clusters_detected  n_noise_points
-KMeans_on_PCA2D             0.216690                0.266483          0.384544                    4               0
-DBSCAN_on_PCA2D             0.007986                0.055559          0.394380                    2              14
+Target Column:
+Class
 
-K-Means Class vs Cluster Crosstab
-kmeans_cluster   0   1   2   3
-class                         
-angry           13  59  24   1
-happy            0  26  69   1
-relax           36   7   8  46
-sad             28  22  10  38
+Rows Used:
+388
 
-DBSCAN Class vs Label Crosstab
-dbscan_label  -1   0   1
-class                   
-angry          4   1  92
-happy          2   0  94
-relax          6  17  74
-sad            2   5  91
+Number of True Classes:
+4
+
+Main Methodological Notes:
+1. K-Means and DBSCAN were applied on the first two principal components, as required.
+2. t-SNE was applied on the original normalized dataset. Since t-SNE is not a clustering algorithm, K-Means was additionally applied on the t-SNE embedding for cluster-level evaluation.
+3. SOM was applied on the original normalized dataset. Each sample was assigned to its best matching unit (BMU), and SOM neuron codebook vectors were clustered into 4 neuron clusters for external validity evaluation.
+4. Clustering metrics compare algorithm-produced labels with true emotion labels. Class-based silhouette in t-SNE space is reported separately as a visual separability measure, not as a clustering metric.
+
+Selected DBSCAN eps:
+0.960761
+
+Combined Clustering Metrics:
+                      method  adjusted_rand_index  normalized_mutual_info  homogeneity  completeness  v_measure  silhouette_score  n_clusters_detected  n_noise_points  occupied_neuron_majority_purity
+          KMeans_on_PCA2D_k4             0.216690                0.266483     0.265187      0.267792   0.266483          0.384544                    4               0                              NaN
+   DBSCAN_on_PCA2D_eps_0.961             0.007986                0.055559     0.035355      0.129652   0.055559          0.394380                    2              14                              NaN
+KMeans_on_tSNE_perplexity_30             0.290140                0.312316     0.311674      0.312960   0.312316          0.397721                    4               0                              NaN
+       SOM_neuron_clustering             0.281509                0.306647     0.299070      0.314617   0.306647         -0.047791                    4               0                         0.796392
+
+K-Means Sensitivity:
+ k     inertia              method  adjusted_rand_index  normalized_mutual_info  homogeneity  completeness  v_measure  silhouette_score  n_clusters_detected  n_noise_points
+ 2 2847.857660  KMeans_on_PCA2D_k2             0.111408                0.145806     0.108544      0.222028   0.145806          0.386035                    2               0
+ 3 1983.008711  KMeans_on_PCA2D_k3             0.213398                0.257108     0.227726      0.295195   0.257108          0.377780                    3               0
+ 4 1387.783167  KMeans_on_PCA2D_k4             0.216690                0.266483     0.265187      0.267792   0.266483          0.384544                    4               0
+ 5 1143.824044  KMeans_on_PCA2D_k5             0.214531                0.275601     0.293287      0.259928   0.275601          0.365124                    5               0
+ 6  993.603626  KMeans_on_PCA2D_k6             0.177186                0.259664     0.294608      0.232131   0.259664          0.340450                    6               0
+ 7  857.211234  KMeans_on_PCA2D_k7             0.162023                0.261805     0.311422      0.225826   0.261805          0.349486                    7               0
+ 8  744.989844  KMeans_on_PCA2D_k8             0.157450                0.278360     0.344055      0.233731   0.278360          0.347621                    8               0
+ 9  656.272531  KMeans_on_PCA2D_k9             0.125515                0.257622     0.330428      0.211106   0.257622          0.345308                    9               0
+10  591.294252 KMeans_on_PCA2D_k10             0.128309                0.261760     0.343499      0.211445   0.261760          0.355408                   10               0
+
+DBSCAN eps Sensitivity:
+     eps  min_samples            selection_note                    method  adjusted_rand_index  normalized_mutual_info  homogeneity  completeness  v_measure  silhouette_score  n_clusters_detected  n_noise_points
+0.629574            5                           DBSCAN_on_PCA2D_eps_0.630         4.626374e-03                0.056470     0.043333      0.081039   0.056470          0.084345                    4              74
+0.666754            5                           DBSCAN_on_PCA2D_eps_0.667         4.256606e-03                0.039626     0.028968      0.062689   0.039626         -0.107957                    4              60
+0.738510            5                           DBSCAN_on_PCA2D_eps_0.739         2.182096e-03                0.049075     0.035406      0.079939   0.049075          0.188129                    4              46
+0.854460            5                           DBSCAN_on_PCA2D_eps_0.854         4.288295e-03                0.059304     0.041373      0.104662   0.059304          0.177317                    4              29
+0.960761            5 selected_unsupervised_eps DBSCAN_on_PCA2D_eps_0.961         7.985750e-03                0.055559     0.035355      0.129652   0.055559          0.394380                    2              14
+1.025735            5                           DBSCAN_on_PCA2D_eps_1.026         7.564146e-03                0.055829     0.035147      0.135654   0.055829          0.393012                    2              11
+1.204255            5                           DBSCAN_on_PCA2D_eps_1.204        -8.648575e-05                0.002721     0.001449      0.022241   0.002721               NaN                    1               7
+1.449861            5                           DBSCAN_on_PCA2D_eps_1.450         1.832500e-07                0.005103     0.002585      0.199746   0.005103               NaN                    1               1
+
+t-SNE Metrics:
+ perplexity  class_based_silhouette_in_tsne_space                                                                  class_based_silhouette_note  kmeans_k                       method  adjusted_rand_index  normalized_mutual_info  homogeneity  completeness  v_measure  silhouette_score  n_clusters_detected  n_noise_points
+          5                              0.025793 Uses true labels only to measure visual class separability; this is not a clustering metric.         4  KMeans_on_tSNE_perplexity_5             0.148831                0.188742     0.188576      0.188909   0.188742          0.404948                    4               0
+         15                              0.033833 Uses true labels only to measure visual class separability; this is not a clustering metric.         4 KMeans_on_tSNE_perplexity_15             0.207996                0.236232     0.235794      0.236672   0.236232          0.374948                    4               0
+         30                              0.099862 Uses true labels only to measure visual class separability; this is not a clustering metric.         4 KMeans_on_tSNE_perplexity_30             0.290140                0.312316     0.311674      0.312960   0.312316          0.397721                    4               0
+         50                              0.111751 Uses true labels only to measure visual class separability; this is not a clustering metric.         4 KMeans_on_tSNE_perplexity_50             0.272602                0.313342     0.313267      0.313417   0.313342          0.401833                    4               0
+
+SOM Class vs Cluster Crosstab:
+som_cluster   0   1   2   3
+true_class                 
+angry        26  63   5   3
+happy        89   7   0   0
+relax         9  12  24  52
+sad          12  35  16  35
+
+Experimental Settings:
+                    method                                                 input_data                                                                                              parameters  random_state
+PCA for K-Means and DBSCAN duplicate-removed, IQR-capped, z-score normalized features                                                                                          n_components=2            42
+         K-Means on PCA 2D                             first two principal components                                                                                          k=4, n_init=30            42
+          DBSCAN on PCA 2D                             first two principal components                                                           eps=0.960761, min_samples=5, eps_quantile=0.9 deterministic
+                     t-SNE                         original normalized feature matrix perplexities=[5, 15, 30, 50], selected_perplexity=30, init=pca, learning_rate=auto/200, iterations=1500            42
+          K-Means on t-SNE                                         2D t-SNE embedding                                                                                          k=4, n_init=30            42
+                       SOM                         original normalized feature matrix                                               grid=10x10, sigma=1.2, learning_rate=0.5, iterations=5000            42
