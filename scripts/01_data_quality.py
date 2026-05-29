@@ -1,10 +1,34 @@
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[1]))
+
 import argparse
 import pandas as pd
 import matplotlib.pyplot as plt
-from src.common import ensure_dirs, load_dataset, infer_target_column, get_numeric_features, OUTPUT_FIG_DIR, OUTPUT_TABLE_DIR, OUTPUT_TEXT_DIR, DATA_INTERIM_DIR, save_text, save_json, print_section, remove_duplicates, iqr_cap_dataframe
+from sklearn.preprocessing import StandardScaler
+
+from src.common import (
+    ensure_dirs,
+    load_dataset,
+    infer_target_column,
+    get_numeric_features,
+    OUTPUT_FIG_DIR,
+    OUTPUT_TABLE_DIR,
+    OUTPUT_TEXT_DIR,
+    DATA_INTERIM_DIR,
+    save_text,
+    save_json,
+    print_section,
+    remove_duplicates,
+    iqr_cap_dataframe,
+)
+
+
+def zscore_numeric_dataframe(df, columns):
+    df_scaled = df.copy()
+    scaler = StandardScaler()
+    df_scaled[columns] = scaler.fit_transform(df_scaled[columns])
+    return df_scaled
 
 
 def main():
@@ -14,12 +38,16 @@ def main():
     args = parser.parse_args()
 
     ensure_dirs()
+
     df_raw, csv_path = load_dataset(args.csv)
     target_col = infer_target_column(df_raw, args.target)
     numeric_features = get_numeric_features(df_raw, target_col)
 
     df_nodup = remove_duplicates(df_raw)
     df_clean, cap_summary = iqr_cap_dataframe(df_nodup, numeric_features)
+
+    df_raw_scaled = zscore_numeric_dataframe(df_raw, numeric_features)
+    df_clean_scaled = zscore_numeric_dataframe(df_clean, numeric_features)
 
     class_dist_raw = df_raw[target_col].value_counts().rename_axis('class').reset_index(name='count')
     class_dist_clean = df_clean[target_col].value_counts().rename_axis('class').reset_index(name='count')
@@ -45,7 +73,15 @@ def main():
     })
 
     duplicate_groups = df_raw[df_raw.duplicated(keep=False)].sort_values(by=df_raw.columns.tolist()).copy()
-    duplicate_class_dist = duplicate_groups[target_col].value_counts().rename_axis('class').reset_index(name='duplicate_row_count') if not duplicate_groups.empty else pd.DataFrame(columns=['class', 'duplicate_row_count'])
+
+    duplicate_class_dist = (
+        duplicate_groups[target_col]
+        .value_counts()
+        .rename_axis('class')
+        .reset_index(name='duplicate_row_count')
+        if not duplicate_groups.empty
+        else pd.DataFrame(columns=['class', 'duplicate_row_count'])
+    )
 
     dtypes_df = pd.DataFrame({
         'column': df_raw.columns,
@@ -55,7 +91,12 @@ def main():
     })
 
     plt.figure(figsize=(14, max(8, len(numeric_features) * 0.24)))
-    plt.boxplot([df_raw[c].dropna() for c in numeric_features], labels=numeric_features, vert=False, showfliers=True)
+    plt.boxplot(
+        [df_raw[c].dropna() for c in numeric_features],
+        labels=numeric_features,
+        vert=False,
+        showfliers=True
+    )
     plt.title('Boxplot of Raw Numerical Features')
     plt.xlabel('Feature Value')
     plt.tight_layout()
@@ -63,20 +104,53 @@ def main():
     plt.close()
 
     plt.figure(figsize=(14, max(8, len(numeric_features) * 0.24)))
-    plt.boxplot([df_clean[c].dropna() for c in numeric_features], labels=numeric_features, vert=False, showfliers=True)
+    plt.boxplot(
+        [df_raw_scaled[c].dropna() for c in numeric_features],
+        labels=numeric_features,
+        vert=False,
+        showfliers=True
+    )
+    plt.title('Boxplot of Z-Score Normalized Raw Numerical Features')
+    plt.xlabel('Standardized Feature Value (z-score)')
+    plt.tight_layout()
+    plt.savefig(OUTPUT_FIG_DIR / '01_boxplot_raw_features_zscore.png', dpi=300)
+    plt.close()
+
+    plt.figure(figsize=(14, max(8, len(numeric_features) * 0.24)))
+    plt.boxplot(
+        [df_clean[c].dropna() for c in numeric_features],
+        labels=numeric_features,
+        vert=False,
+        showfliers=True
+    )
     plt.title('Boxplot After Duplicate Removal and IQR-Based Capping')
     plt.xlabel('Feature Value')
     plt.tight_layout()
     plt.savefig(OUTPUT_FIG_DIR / '01_boxplot_cleaned_features.png', dpi=300)
     plt.close()
 
+    plt.figure(figsize=(14, max(8, len(numeric_features) * 0.24)))
+    plt.boxplot(
+        [df_clean_scaled[c].dropna() for c in numeric_features],
+        labels=numeric_features,
+        vert=False,
+        showfliers=True
+    )
+    plt.title('Boxplot After Duplicate Removal, IQR-Based Capping, and Z-Score Normalization')
+    plt.xlabel('Standardized Feature Value (z-score)')
+    plt.tight_layout()
+    plt.savefig(OUTPUT_FIG_DIR / '01_boxplot_cleaned_features_zscore.png', dpi=300)
+    plt.close()
+
     df_clean.to_csv(DATA_INTERIM_DIR / 'analysis_ready_dataset.csv', index=False)
+
     summary_df.to_csv(OUTPUT_TABLE_DIR / '01_data_quality_overview.csv', index=False)
     class_dist_raw.to_csv(OUTPUT_TABLE_DIR / '01_class_distribution_raw.csv', index=False)
     class_dist_clean.to_csv(OUTPUT_TABLE_DIR / '01_class_distribution_clean.csv', index=False)
     dtypes_df.to_csv(OUTPUT_TABLE_DIR / '01_column_profile.csv', index=False)
     cap_summary.to_csv(OUTPUT_TABLE_DIR / '01_iqr_capping_summary.csv', index=False)
     duplicate_class_dist.to_csv(OUTPUT_TABLE_DIR / '01_duplicate_class_distribution.csv', index=False)
+
     if not duplicate_groups.empty:
         duplicate_groups.to_csv(OUTPUT_TABLE_DIR / '01_duplicate_rows.csv', index=False)
 
